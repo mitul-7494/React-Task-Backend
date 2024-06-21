@@ -21,25 +21,15 @@ async function main(){
 }
 server.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
-  // res.setHeader("Access-Control-Allow-Origin", "*");
-  // res.setHeader('Access-Control-Allow-Methods', '*');
-  // res.setHeader("Access-Control-Allow-Headers", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
+
 server.use(cookieParser());
-server.use(express.static("public"));
 server.use(bodyParser.json());
 server.use(express.urlencoded({extended: true}));
-server.use('/static', express.static('public'))
 server.use("/", router);
-server.set("view engine", "ejs");
 
 server.listen(8081, ()=>{
     console.log("server started");
 })
-
-// process.on("unhandledRejection", err => {
-//     console.log(`An error occurred: ${err.message}`)
-//     server.close(() => process.exit(1))
-//   })

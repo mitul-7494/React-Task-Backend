@@ -133,7 +133,6 @@ exports.order = async (req, res) => {
       cartvalue = cartvalue + (+data.price * +data.quantity)
     })
     var { email } = await Cd.findOne({ username })
-    await Cus.findOneAndUpdate({ username }, { balance: +customer.balance - cartvalue }, { runValidators: true })
     const placed = await Order.create({ username, orderlist, date, cartvalue, email, status: "pending" })
     await Cart.deleteMany({ username })
     res.json({ message: "ok", _id: placed._id})

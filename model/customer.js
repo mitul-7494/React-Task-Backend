@@ -11,11 +11,6 @@ const CustomerSchema = new Schema({
       type: String,
       minlength: 6,
       required: true,
-    },
-    balance: {
-        type: Number,
-        required:true,
-        min: 0
     }
 })
 
