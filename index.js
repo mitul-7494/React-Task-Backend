@@ -12,7 +12,6 @@ main().catch(err => console.log(err));
 async function main(){
     
   mongoose.connect(process.env.URI, {
-    useNewUrlParser: true,
     useUnifiedTopology: true,
   })
     .catch((error) => {

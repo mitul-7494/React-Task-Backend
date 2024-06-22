@@ -8,7 +8,6 @@ const order = require('../model/order');
 const Order = order.orders;
 const moment = require('moment');
 const path = require('path');
-const {convertUrlToPdf} = require('./mail')
 require('dotenv').config();
 
 
@@ -141,21 +140,6 @@ exports.order = async (req, res) => {
     res.status(401).json({
       message: "something went wrong here",
       error: err.mesage
-    })
-  }
-}
-
-
-exports.mail = async (req, res)=>{
-  const {_id, email} = req.body;
-  try {
-    var fullUrl = req.protocol +'://' + req.get('host') + "/items/orders/" +_id;
-    await convertUrlToPdf(fullUrl,email,_id);
-    res.json({message:"ok"});
-  } catch (error) {
-    res.status(401).json({
-      message: "something went wrong in mail part",
-      error: error.mesage
     })
   }
 }

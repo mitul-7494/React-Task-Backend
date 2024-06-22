@@ -20,7 +20,6 @@ router
 .put('/items/cart',cont.customerAuth,cart.puttoitem)
 .delete('/items/cart',cont.customerAuth,cart.deletitem)
 .get('/',(req,res)=>{res.redirect("/login")})
-.get('/:id',(req,res)=>{res.redirect("/login")})
-.get('/*',(req,res)=>{res.redirect("/login")})
+.get('/*',(req,res)=>{res.send("login")})
 
 module.exports = router;

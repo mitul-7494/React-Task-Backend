@@ -30,11 +30,6 @@ const OrderSchema = new Schema({
         require:true
     },
     date:Date,
-    status:{
-        type: String,
-        default: "Pending"
-    },
-    approvedby:String,
     email:String
 })
 
