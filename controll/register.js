@@ -19,10 +19,10 @@ exports.register_customer = async (req, res) => {
         res.send({message : 'user created successfully'})
       )
     } else {
-      res.send({message : 'User Name already exist'})
+      res.status(401).json({message : 'User Name already exist'})
     }
   } catch (err) {
-    res.status(401).json({
+    res.status(400).json({
       message: "Failed to register User",
       error: err.mesage
     })

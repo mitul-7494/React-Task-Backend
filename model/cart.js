@@ -23,7 +23,7 @@ const CartSchema = new Schema({
         required: true,
         min:[1, "not a vaid input"]
     },
-    email:String
+    thumbnail: String
 })
 
 exports.cart = mongoose.model('cart', CartSchema);

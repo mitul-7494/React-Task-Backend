@@ -8,7 +8,7 @@ const cart = require("./cart")
 router
 .post('/register', reg.register_customer)
 .post('/login', cont.clogin)
-.get('/logout',cont.logout)
+.post('/logout',cont.logout)
 .get('/items',cont.customerAuth,page.items)
 .get('/items/cart',cont.customerAuth,page.cart)
 .get('/items/orders',cont.customerAuth,page.orders)

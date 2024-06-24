@@ -20,8 +20,7 @@ exports.items = async (req, res)=>{
     const item_list = await Items.find();
     const username = req.cookies.user
     const user = await Cus.findOne({username})
-    res.send({items: item_list, username: user})
-
+    res.status(200).json({items: item_list, username: user})
 }
 
 exports.cart = async (req, res)=>{

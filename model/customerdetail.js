@@ -20,7 +20,9 @@ const DetailSchema = new Schema({
         type:String,
         required:true,
         validate:{validator: function(v){return v.length==10}, message:"number is not valid"}
-    }
+    },
+    address:String,
+    paymentMethod:String
 });
 
 exports.details = mongoose.model('details', DetailSchema);

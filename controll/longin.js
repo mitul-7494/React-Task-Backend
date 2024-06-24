@@ -22,7 +22,7 @@ exports.clogin = async (req, res) => {
     }
     const custobj = await Customer.findOne({ username, password })
     if (!custobj) {
-      res.send({ message: "Login not successful, User not found" })
+      res.status(400).json({ message: "Login not successful, User not found" })
     } else {
       const maxAge = 72 * 60 * 60;
       const token = jwt.sign(
@@ -61,6 +61,6 @@ exports.customerAuth = (req, res, next) => {
       }
     })
   } else {
-    res.send({message: "No Token Found"})
+    res.status(401).json({ message: "Not authorized"})
   }
 }

@@ -11,6 +11,9 @@ const CustomerSchema = new Schema({
       type: String,
       minlength: 6,
       required: true,
+    },
+    email: {
+      type: String
     }
 })
 
